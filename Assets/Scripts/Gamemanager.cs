@@ -54,6 +54,10 @@ public class Gamemanager : MonoBehaviour
             {
                 CheckWin();
             }
+            if (nummovesplayed > 8)
+            {
+                Debugtext.text = "Its a Tie";
+            }
 
         }
         else if (oturn)
@@ -71,6 +75,10 @@ public class Gamemanager : MonoBehaviour
             if (nummovesplayed > 4)
             {
                 CheckWin();
+            }
+            if (nummovesplayed > 8)
+            {
+                Debugtext.text = "Its a Tie";
             }
         }
     }
