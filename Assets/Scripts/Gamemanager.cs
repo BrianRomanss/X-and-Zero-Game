@@ -54,10 +54,14 @@ public class Gamemanager : MonoBehaviour
             {
                 CheckWin();
             }
-            if (nummovesplayed > 8)
+            if (!xwin && !owin)
             {
-                Debugtext.text = "Its a Tie";
+                if (nummovesplayed > 8)
+                {
+                    Debugtext.text = "Its a Tie";
+                }
             }
+             
 
         }
         else if (oturn)
@@ -76,10 +80,14 @@ public class Gamemanager : MonoBehaviour
             {
                 CheckWin();
             }
-            if (nummovesplayed > 8)
+            if(!xwin && !owin)
             {
-                Debugtext.text = "Its a Tie";
+                if (nummovesplayed > 8)
+                {
+                    Debugtext.text = "Its a Tie";
+                }
             }
+           
         }
     }
     public void CheckWin()
