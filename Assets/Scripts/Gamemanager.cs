@@ -11,6 +11,7 @@ public class Gamemanager : MonoBehaviour
     public int nummovesplayed;
     public Text Debugtext;
     public List<Image> images;
+    [SerializeField] GameObject main_Menu;
     public List<List<int>> Winconditions = new List<List<int>>
 
     {
@@ -25,6 +26,7 @@ public class Gamemanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         Debugtext.text = "X plays First";
     }
 
