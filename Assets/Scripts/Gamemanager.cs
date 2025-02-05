@@ -23,6 +23,7 @@ public class Gamemanager : MonoBehaviour
     };
     bool xwin, owin;
     public List<int> board = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    public ParticleSystem p1, p2;
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +122,8 @@ public class Gamemanager : MonoBehaviour
                 {
                     img.raycastTarget = false;
                 }
+                p1.Play();
+                p2.Play();
                 break;
             }
             else if (o > 2)
@@ -131,6 +134,8 @@ public class Gamemanager : MonoBehaviour
                 {
                     img.raycastTarget = false;
                 }
+                p1.Play();
+                p2.Play();
                 break;
             }
 
@@ -144,6 +149,8 @@ public class Gamemanager : MonoBehaviour
             img.sprite = null;
             img.color=Color.clear;
         }
+        p1.Stop();
+        p2.Stop();
         nummovesplayed = 0;
         board = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         xturn = true;
