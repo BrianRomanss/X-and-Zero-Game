@@ -11,6 +11,7 @@ public class Gamemanager : MonoBehaviour
     public int nummovesplayed;
     public Text Debugtext;
     public List<Image> images;
+    public List<GameObject> slashes;
     [SerializeField] GameObject main_Menu;
     public List<List<int>> Winconditions = new List<List<int>>
 
@@ -29,6 +30,8 @@ public class Gamemanager : MonoBehaviour
     {
        
         Debugtext.text = "X plays First";
+        p1.Pause();
+        p2.Pause();
     }
 
     // Update is called once per frame
@@ -95,12 +98,16 @@ public class Gamemanager : MonoBehaviour
     }
     public void CheckWin()
     {
+        int i = 0;
         foreach (var condition in Winconditions)
         {
-
+            i++;
+            
             int x = 0; int o = 0;
             foreach (var item in condition)
             {
+               
+               
                 if (board[item] == 0)
                 {
                     break;
@@ -122,6 +129,8 @@ public class Gamemanager : MonoBehaviour
                 {
                     img.raycastTarget = false;
                 }
+                slashes[i - 1].SetActive(true);
+                Debug.Log(i);
                 p1.Play();
                 p2.Play();
                 break;
@@ -134,6 +143,8 @@ public class Gamemanager : MonoBehaviour
                 {
                     img.raycastTarget = false;
                 }
+                slashes[i - 1].SetActive(true);
+                Debug.Log(i);
                 p1.Play();
                 p2.Play();
                 break;
@@ -148,6 +159,10 @@ public class Gamemanager : MonoBehaviour
             img.raycastTarget = true;
             img.sprite = null;
             img.color=Color.clear;
+        }
+        foreach(var obj in slashes)
+        {
+            obj.SetActive(false);
         }
         p1.Stop();
         p2.Stop();

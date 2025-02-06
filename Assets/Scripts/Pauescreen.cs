@@ -19,6 +19,8 @@ public class Pauescreen : MonoBehaviour
 
     public void openPauseScreen(){
         pausescreenPanel.gameObject.SetActive(true);
+       gamemanager.p1.Stop();
+        gamemanager.p2.Stop();
        
         
         
